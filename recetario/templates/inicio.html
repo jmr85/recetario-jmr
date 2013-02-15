@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Inicio {% endblock %}<!-- <title> -->
+
+{% block style_css %}<!-- <style>html5 -->
+	
+{% endblock %}
+
+{% block encabezado %}<!-- <header>html5 -->
+	<h1>Recetario</h1>
+	<a href="/ingresar">Ingresar</a></br>
+	<a href="/usuario/nuevo">Registrate</a>
+{% endblock %}
+
+{% block contenido %}<!-- <section>hml5 -->
+	<p>
+		Actualmente tenemos registradas:
+		{% with total=recetas.count %}
+			{{total}} receta{{total|pluralize}}
+		{% endwith %}
+	</p>
+	<ul>
+		{% for dato in recetas %}	
+			<li class="{% cycle 'impar' 'par' %}">{{dato.titulo|title}}</li>
+		{% empty %}
+			<li>No hay recetas registradas aun</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
