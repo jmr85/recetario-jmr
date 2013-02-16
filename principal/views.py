@@ -39,7 +39,8 @@ def contacto(request):
         formulario = ContactoForm(request.POST)
         if formulario.is_valid():
             titulo = 'Mensaje desde el recetario de JMR'
-            contenido = formulario.cleaned_data['mensaje']+'\n'
+            contenido = formulario.cleaned_data['nombre']+'\n'
+            contenido += formulario.cleaned_data['mensaje']+'\n'
             contenido += 'Comunicarse a: '+ formulario.cleaned_data['correo']
             email_mje = EmailMessage(titulo, contenido, to=['administrator@example.com'])
             email_mje.send()

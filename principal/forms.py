@@ -4,7 +4,9 @@ from principal.models import Receta, Comentario
 from django.forms import ModelForm
 
 class ContactoForm(forms.Form):
+
     correo = forms.EmailField(label='Tu correo electrónico')
+    nombre = forms.CharField(widget=forms.TextInput())
     mensaje = forms.CharField(widget=forms.Textarea)
 
 class RecetaForm(ModelForm):
