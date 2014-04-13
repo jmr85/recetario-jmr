@@ -24,11 +24,11 @@ DATABASES = {
     }
 }
 
-gettext = lambda s: s
+_ = lambda s: s
 
 LANGUAGES = (
-             ('es' , gettext('Español')),
-             ('en' , gettext('English')),
+             ('es' , _('Español')),
+             ('en' , _('English')),
 )
 
 DEFAULT_LANGUAGE = 0
